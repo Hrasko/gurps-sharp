@@ -17,39 +17,57 @@ namespace Arena
         public const int PV = 4;
         public const int Fadiga = 5;
         public const int Velocidade = 6;
-        public const int Carga = 7;
-        
-        
 
+        public string nome;
+        public int xp;
         int id;
         float valor;
 
-        public float Valor
+        protected Personagem meuPersonagem;
+
+        public virtual float Valor
         {
             get
             {
+                if (xp > 0)
+                {
+                    return xp / 10 + 10;
+                }
                 return valor;
             }
         }
 
-        public Atributo(int id_)
+        public virtual int ValorAtual
         {
-            id = id_;
-            switch (id)
+            get
             {
-                case ST:
-                case DX:
-                case IQ:
-                case HT:
-                case Fadiga:
-                case Velocidade:
-                    valor = 10; break;
-
-                default: valor = 0; break;
+                return (int)valor;
             }
         }
 
-        
+
+        public Atributo(int id_, Personagem meuPersonagem_)
+        {
+            meuPersonagem = meuPersonagem_;
+            xp = 0;
+            id = id_;
+            switch (id)
+            {
+                case ST:            nome = "ST"; valor = 10; break;
+                case DX:            nome = "DX"; valor = 10; break;
+                case IQ:            nome = "IQ"; valor = 10; break;
+                case HT:            nome = "HT"; valor = 10; break;
+                case PV:            nome = "PV"; valor = 10; break;
+                case Fadiga:        nome = "Fadiga"; valor = 10; break;
+                case Velocidade:    nome = "Velocidade"; valor = 5; break;
+                default:            nome = "invalido"; valor = 0; break;
+            }
+        }
+
+        public void gastePontos(int pontos)
+        {
+            xp += pontos;
+        }
 
     }
 }

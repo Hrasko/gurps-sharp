@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Atributo.cs" />
+    <Compile Include="AtributoHabilidade.cs" />
+    <Compile Include="Fadiga.cs" />
+    <Compile Include="Gerente.cs" />
     <Compile Include="Habilidade.cs" />
+    <Compile Include="Mestre.cs" />
     <Compile Include="Personagem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

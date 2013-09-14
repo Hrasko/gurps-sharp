@@ -18,7 +18,15 @@ namespace Arena
         int id;
         Dificuldade dificuldade;
         int atributoBase;
-        string nome;
+        public string nome;
+
+        public Habilidade(int id_,Dificuldade dificuldade_,int atributo_,string nome_)
+        {
+            id = id_;
+            dificuldade = dificuldade_;
+            atributoBase = atributo_;
+            nome = nome_;
+        }
 
         public int numeroAlvoBase(Personagem personagem)
         {
