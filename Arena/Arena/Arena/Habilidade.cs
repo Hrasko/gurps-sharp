@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Arena
 {
+    [Serializable]
     class Habilidade
     {
         public enum Dificuldade
@@ -59,7 +60,7 @@ namespace Arena
                     case Dificuldade.MuitoDificil: numeroAlvo -= 3; break;
                 }
             }
-            return numeroAlvo - bonusPontos;
+            return numeroAlvo + bonusPontos;
         }
 
         protected int bonusDefault(Personagem personagem)
@@ -72,6 +73,5 @@ namespace Arena
                 default: return int.MinValue;
             }
         }
-
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Arena
 {
+    [Serializable]
     class Atributo
     {
         public const int QT = 7;
@@ -23,6 +24,9 @@ namespace Arena
         int id;
         float valor;
 
+        protected int valorAtual;
+        private int custoNivel;
+
         protected Personagem meuPersonagem;
 
         public virtual float Valor
@@ -31,7 +35,7 @@ namespace Arena
             {
                 if (xp > 0)
                 {
-                    return xp / 10 + 10;
+                    return xp / custoNivel + 10;
                 }
                 return valor;
             }
@@ -41,16 +45,17 @@ namespace Arena
         {
             get
             {
-                return (int)valor;
+                return valorAtual;
             }
         }
 
-
-        public Atributo(int id_, Personagem meuPersonagem_)
+        public Atributo(int id_, Personagem meuPersonagem_, int custoNivel_)
         {
             meuPersonagem = meuPersonagem_;
             xp = 0;
             id = id_;
+            custoNivel = custoNivel_;
+
             switch (id)
             {
                 case ST:            nome = "ST"; valor = 10; break;
@@ -62,11 +67,22 @@ namespace Arena
                 case Velocidade:    nome = "Velocidade"; valor = 5; break;
                 default:            nome = "invalido"; valor = 0; break;
             }
+            descansarTotal();
         }
 
-        public void gastePontos(int pontos)
+        public void descansarTotal()
+        {
+            valorAtual = (int)valor;
+        }
+
+        public void gasteXP(int pontos)
         {
             xp += pontos;
+        }
+
+        public void gaste(int pontos)
+        {
+            valorAtual -= pontos;
         }
 
     }

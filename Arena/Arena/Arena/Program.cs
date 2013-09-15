@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Arena
 {
@@ -14,12 +16,14 @@ namespace Arena
         static void Main(string[] args)
         {
             gerente.escrever("1 - Crie Personagem");
-            gerente.escrever("2 - Sair");
+            gerente.escrever("2 - Carregar Personagem");
+            gerente.escrever("3 - Sair");
 
             int op = gerente.requererInt("Opção: ");
             switch (op)
             {
                 case 1: criarPersonagem(); break;
+                case 2: carregarPersonagem(); break;
             }
         }
 
@@ -32,6 +36,15 @@ namespace Arena
             levelup();
         }
 
+        static void carregarPersonagem()
+        {
+            gerente.limpar();
+            gerente.listarTodosPersonagens();
+            string nome = gerente.requerer("Escreva um nome: ");
+            jogador = gerente.carregar(nome);
+            levelup();
+        }
+
         static void levelup()
         {
             int op = -1;
@@ -39,27 +52,44 @@ namespace Arena
             {
                 gerente.limpar();
                 gerente.escrever(jogador.ToString());
-                gerente.escrever("1 - Compre Atributos");
-                gerente.escrever("2 - Compre Habilidade");
+                gerente.escrever("1 - Melhore Atributos");
+                gerente.escrever("2 - Melhore Habilidade");
+                gerente.escrever("3 - Salvar");
                 gerente.escrever("0 - Sair");
 
                 op = gerente.requererInt("Opção: ");
                 int op2 = 0;
+                int qtPontos;
                 switch (op)
                 {
                     case 1:
                         gerente.escrever("Qual atributo?");
-                        
-                        gerente.escrever("1 - ST");
-                        gerente.escrever("2 - DX");
-                        gerente.escrever("3 - IQ");
-                        gerente.escrever("4 - HT");
-                        gerente.escrever("5 - Fadiga");
-                        gerente.escrever("6 - Velocidade");
-                        gerente.escrever("0 - Voltar");
+
+                        for (int i = 0; i < Atributo.QT; i++)
+                        {
+                           gerente.escrever(i + " - " + jogador.atributos[i].nome);
+                        }
+
+                        gerente.escrever(Atributo.QT + " - Voltar");
                         op2 = gerente.requererInt("Opção: ");
-                        int qtPontos = gerente.requererInt("Quantos pontos?");
-                        jogador.gastePontosAtributo(op2 - 1, qtPontos);
+                        qtPontos = gerente.requererInt("Quantos pontos?");
+                        jogador.gastePontosAtributo(op2, qtPontos);
+                        break;
+                    case 2:
+                        gerente.escrever("Qual Habilidade?");
+
+                        foreach (var item in mestre.habilidades)
+                        {
+                            gerente.escrever(item.Key + " - " + item.Value.nome);
+                        }
+
+                        gerente.escrever( (mestre.habilidades.Count+1) + " - Voltar");
+                        op2 = gerente.requererInt("Opção: ");
+                        qtPontos = gerente.requererInt("Quantos pontos?");
+                        jogador.gastePontosHabilidade(op2, qtPontos);
+                        break;
+                    case 3:
+                        gerente.salvar(jogador);
                         break;
                 }
             }

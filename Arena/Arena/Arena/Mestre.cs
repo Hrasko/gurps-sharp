@@ -5,9 +5,10 @@ using System.Text;
 
 namespace Arena
 {
+    [Serializable]
     class Mestre
     {
-        public Dictionary<int, Habilidade> habilidades;
+        public Dictionary<int, Habilidade> habilidades;        
 
         public const string ESPADA = "Espada";
         public const string ESPADA2MAOS = "Espada de duas Mãos";
