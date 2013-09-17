@@ -44,12 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Atributo.cs" />
+    <Compile Include="AtributoInfo.cs" />
     <Compile Include="Gerente.cs" />
-    <Compile Include="Habilidade.cs" />
+    <Compile Include="HabilidadeInfo.cs" />
     <Compile Include="Mestre.cs" />
     <Compile Include="Personagem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="atributos.txt" />
+    <Content Include="mestre.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

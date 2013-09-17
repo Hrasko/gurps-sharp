@@ -42,14 +42,16 @@ namespace Arena
         public Personagem carregar(string nome)
         {
             Stream TestFileStream = File.OpenRead(nome + ".personagem");
-            BinaryFormatter deserializer = new BinaryFormatter();
+            System.Xml.Serialization.XmlSerializer deserializer = new System.Xml.Serialization.XmlSerializer(typeof(Personagem));
+            //BinaryFormatter deserializer = new BinaryFormatter();
             return deserializer.Deserialize(TestFileStream) as Personagem;
         }
 
         public void salvar(Personagem p)
         {
             Stream sw = File.Create(p.nome + ".personagem");
-            BinaryFormatter serializer = new BinaryFormatter();
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(p.GetType());
+            //BinaryFormatter serializer = new BinaryFormatter();
             serializer.Serialize(sw, p);
             sw.Close();
             this.escrever("salvo!");

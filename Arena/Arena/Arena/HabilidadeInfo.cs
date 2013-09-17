@@ -6,7 +6,7 @@ using System.Text;
 namespace Arena
 {
     [Serializable]
-    class Habilidade
+    public class HabilidadeInfo
     {
         public enum Dificuldade
         {
@@ -16,19 +16,24 @@ namespace Arena
             MuitoDificil
         }
 
-        int id;
-        Dificuldade dificuldade;
-        int atributoBase;
+        public int id;
+        public Dificuldade dificuldade;
+        public int atributoBase;
         public string nome;
 
-        public Habilidade(int id_,Dificuldade dificuldade_,int atributo_,string nome_)
+        public HabilidadeInfo()
+        {
+
+        }
+
+        public HabilidadeInfo(int id_,Dificuldade dificuldade_,int atributo_,string nome_)
         {
             id = id_;
             dificuldade = dificuldade_;
             atributoBase = atributo_;
             nome = nome_;
         }
-
+        /*
         public int numeroAlvoBase(Personagem personagem)
         {
             int numeroAlvo = (int)personagem.pegarValorAtributo(atributoBase);
@@ -72,6 +77,6 @@ namespace Arena
                 case Dificuldade.Dificil: return -6;
                 default: return int.MinValue;
             }
-        }
+        }*/
     }
 }
