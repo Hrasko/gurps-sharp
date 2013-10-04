@@ -1,8 +1,0 @@
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\bin\Debug\mestre.xml
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\bin\Debug\ArenaTest.dll
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\bin\Debug\ArenaTest.pdb
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\bin\Debug\Arena.exe
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\bin\Debug\Arena.pdb
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\obj\Debug\ArenaTest.csprojResolveAssemblyReference.cache
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\obj\Debug\ArenaTest.dll
-C:\Users\Hrasko\git\aulas\Arena\Arena\ArenaTest\obj\Debug\ArenaTest.pdb

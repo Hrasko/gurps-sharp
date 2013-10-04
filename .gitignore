@@ -1,3 +1,6 @@
-Arena/Arena/Arena/obj/*
-Arena/Arena/Arena/bin/*
-Arena/Arena/Arena/Properties/*
+Arena/Arena/obj/*
+Arena/Arena/bin/*
+Arena/Arena/Properties/*
+Arena/ArenaTest/obj/*
+Arena/ArenaTest/bin/*
+Arena/TestResults/*
