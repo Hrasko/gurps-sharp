@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="308a08b7-0b98-41db-91a3-db5a6319e78c" name="Hrasko@DELLOREAN 2013-10-04 15:35:34" runUser="DELLOREAN\Hrasko" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="944d5b6d-9a3b-436d-8809-3ea2e9a748e2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Hrasko_DELLOREAN 2013-10-04 15_35_34">
+      <DeploymentItem filename="C:\Users\Hrasko\git\aulas\Arena\Arena\Arena\bin\Debug\Arena.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-10-04T15:35:34.9671695-03:00" queuing="2013-10-04T15:35:36.4172525-03:00" start="2013-10-04T15:35:36.5862621-03:00" finish="2013-10-04T15:35:49.2299853-03:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="DELLOREAN" outcome="Error" timestamp="2013-10-04T15:35:49.2279852-03:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetSwing" storage="c:\users\hrasko\git\aulas\arena\arena\arenatest\bin\debug\arenatest.dll" id="a5566bfa-4871-e330-3f88-ed82b6451ef9">
+      <Execution id="cf0bee8c-3a16-40a6-87da-0737b857b6ec" />
+      <TestMethod codeBase="C:/Users/Hrasko/git/aulas/Arena/Arena/ArenaTest/bin/Debug/ArenaTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ArenaTest.DanoTest, ArenaTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetSwing" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a5566bfa-4871-e330-3f88-ed82b6451ef9" executionId="cf0bee8c-3a16-40a6-87da-0737b857b6ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cf0bee8c-3a16-40a6-87da-0737b857b6ec" testId="a5566bfa-4871-e330-3f88-ed82b6451ef9" testName="GetSwing" computerName="DELLOREAN" duration="00:00:12.4547124" startTime="2013-10-04T15:35:36.7752729-03:00" endTime="2013-10-04T15:35:49.2299853-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf0bee8c-3a16-40a6-87da-0737b857b6ec">
+    </UnitTestResult>
+  </Results>
+</TestRun>

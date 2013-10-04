@@ -8,8 +8,6 @@ namespace Arena
     [Serializable]
     public class Personagem
     {
-        Mestre mestre;
-
         public string nome;
         public Atributo[] atributos;
         public int xp;
@@ -23,19 +21,18 @@ namespace Arena
         public Personagem(string nome_)
         {
             nome = nome_;
-
-            atributos = new Atributo[Mestre.Atributos.Length];
-            for (int i = 0; i < atributos.Length; i++)
-            {
-                atributos[i] = new Atributo();
-
-            }
+            habilidades = new SerializableDictionary<int, int>();
+            atributos = new Atributo[AtributoInfo.QT];            
+                for (int i = 0; i < atributos.Length; i++)
+                {
+                    atributos[i] = new Atributo();
+                }
         }
 
         
-        public float pegarValorAtributo(int indice)
+        public int pegarValorAtributo(int indice)
         {
-            return atributos[indice];
+            return Mestre.ValorAtributo(indice,this);
         }
 
 
@@ -49,7 +46,7 @@ namespace Arena
             if (pontos <= xp)
             {
                 xp -= pontos;
-                //atributos[indice].gasteXP(pontos);
+                atributos[indice].gasteXP(pontos);
             }
         }
 
@@ -78,12 +75,17 @@ namespace Arena
             sb.AppendLine("XP: " + xp);
             for (int i = 0; i < atributos.Length; i++)
             {
-                // sb.AppendLine(atributos[i].nome + ": " + atributos[i].Valor);
+                var atributo = Mestre.Atributos[i];
+                if (!atributo.exclusivoEquipamento)
+                {
+                    sb.AppendLine(atributo.nome + ": " + Mestre.ValorAtributo(i,this));
+                }
             }
 
             foreach (var item in habilidades)
             {
-                //sb.AppendLine(mestre.habilidades[item.Key].nome + ": NH " + mestre.habilidades[item.Key].numeroAlvoBase(this));
+                var habilidade = Mestre.Habilidades[item.Key];
+                sb.AppendLine(habilidade.nome + ": " + Mestre.Habilidades[item.Key].numeroAlvoBase(this));
             }
 
             sb.AppendLine("-------------------------");

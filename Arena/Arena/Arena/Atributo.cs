@@ -10,6 +10,11 @@ namespace Arena
         public int xp;
         public int valorAtual;
 
+        /// <summary>
+        /// Indice do atributo PV
+        /// </summary>
+        public static int PV;
+
         public Atributo()
         {
             xp = 0;

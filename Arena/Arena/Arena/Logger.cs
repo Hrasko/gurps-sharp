@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Arena
 {
-    class Gerente
+    class Logger
     {
         public void limpar()
         {
@@ -17,6 +17,11 @@ namespace Arena
         public void escrever(string frase)
         {
             Console.WriteLine(frase);
+        }
+
+        public void log(string frase)
+        {
+            System.Diagnostics.Debug.WriteLine(frase);
         }
 
         public string requerer(string frase)

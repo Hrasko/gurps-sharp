@@ -43,9 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arma.cs" />
+    <Compile Include="ArmaMelee.cs" />
     <Compile Include="Atributo.cs" />
     <Compile Include="AtributoInfo.cs" />
-    <Compile Include="Gerente.cs" />
+    <Compile Include="Dados.cs" />
+    <Compile Include="Dano.cs" />
+    <Compile Include="DanoDependente.cs" />
+    <Compile Include="DanoSwing.cs" />
+    <Compile Include="Equipamento.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="HabilidadeInfo.cs" />
     <Compile Include="Mestre.cs" />
     <Compile Include="Personagem.cs" />
@@ -54,7 +61,6 @@
     <Compile Include="SerializableDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="atributos.txt" />
     <Content Include="mestre.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -33,10 +33,10 @@ namespace Arena
             atributoBase = atributo_;
             nome = nome_;
         }
-        /*
+        
         public int numeroAlvoBase(Personagem personagem)
         {
-            int numeroAlvo = (int)personagem.pegarValorAtributo(atributoBase);
+            int numeroAlvo = personagem.pegarValorAtributo(atributoBase);
             int pontosNaHabilidade = personagem.pontosNaHabilidade(id);
             int bonusPontos = 0;
             if (pontosNaHabilidade == 0)
@@ -77,6 +77,6 @@ namespace Arena
                 case Dificuldade.Dificil: return -6;
                 default: return int.MinValue;
             }
-        }*/
+        }
     }
 }

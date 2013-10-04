@@ -10,12 +10,12 @@ namespace Arena
     class Program
     {
         static Personagem jogador;
-        static Gerente gerente = new Gerente();
+        static Logger gerente = new Logger();
         static Mestre mestre;
 
         static void Main(string[] args)
         {
-            Mestre.Load();
+            Mestre.Load("mestre.xml");
             
             gerente.escrever("1 - Crie Personagem");
             gerente.escrever("2 - Carregar Personagem");
@@ -33,7 +33,7 @@ namespace Arena
         {
             gerente.limpar();
             string nome = gerente.requerer("Escreva um nome: ");
-            jogador = new Personagem(nome,mestre);
+            jogador = new Personagem(nome);
             jogador.xp = 100;
             levelup();
         }
@@ -67,12 +67,12 @@ namespace Arena
                     case 1:
                         gerente.escrever("Qual atributo?");
 
-                        for (int i = 0; i < AtributoInfo.QT; i++)
+                        foreach (var item in Mestre.Atributos)
                         {
-                           //gerente.escrever(i + " - " + jogador.atributos[i].nome);
+                            gerente.escrever(item.id + " - " + item.nome);
                         }
 
-                        gerente.escrever(AtributoInfo.QT + " - Voltar");
+                        gerente.escrever(Mestre.Atributos.Length + " - Voltar");
                         op2 = gerente.requererInt("Opção: ");
                         qtPontos = gerente.requererInt("Quantos pontos?");
                         jogador.gastePontosAtributo(op2, qtPontos);
@@ -82,10 +82,10 @@ namespace Arena
 
                         foreach (var item in Mestre.Habilidades)
                         {
-                            //gerente.escrever(item.Key + " - " + item.Value.nome);
+                            gerente.escrever(item.id + " - " + item.nome);
                         }
 
-                        //gerente.escrever( (mestre.habilidades.Count+1) + " - Voltar");
+                        gerente.escrever( Mestre.Habilidades.Length + " - Voltar");
                         op2 = gerente.requererInt("Opção: ");
                         qtPontos = gerente.requererInt("Quantos pontos?");
                         jogador.gastePontosHabilidade(op2, qtPontos);
