@@ -49,15 +49,15 @@
     <Compile Include="DanoTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Arena\Arena.csproj">
-      <Project>{E6345D60-E486-4DF3-8627-8CFD58B61FBF}</Project>
-      <Name>Arena</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="mestre.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GurpsSharp\GurpsSharp.csproj">
+      <Project>{FDEF5ACD-FF7F-4323-9E96-6104D487B4AE}</Project>
+      <Name>GurpsSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

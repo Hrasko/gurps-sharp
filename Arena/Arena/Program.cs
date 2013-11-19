@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using GurpsSharp;
 
 namespace Arena
 {
@@ -19,14 +20,35 @@ namespace Arena
             
             gerente.escrever("1 - Crie Personagem");
             gerente.escrever("2 - Carregar Personagem");
-            gerente.escrever("3 - Sair");
+            gerente.escrever("3 - Combate");
+            gerente.escrever("4 - Sair");
 
             int op = gerente.requererInt("Opção: ");
             switch (op)
             {
                 case 1: criarPersonagem(); break;
                 case 2: carregarPersonagem(); break;
+                case 3: combate(); break;
             }
+        }
+
+        static void combate()
+        {
+            gerente.limpar();
+            gerente.listarTodosPersonagens();
+            string nome = gerente.requerer("Escreva nome do seu personagem: ");
+            jogador = gerente.carregar(nome);
+
+            Personagem adversario;
+
+            nome = gerente.requerer("Escreva nome do seu adversario: ");
+            adversario = gerente.carregar(nome);
+
+
+            ArmaMelee espada = new ArmaMelee("Katana", 5, 1, Mestre.Habilidades[0], 2);
+            
+            jogador.Equipar("maodireita", espada);
+
         }
 
         static void criarPersonagem()

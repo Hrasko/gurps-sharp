@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Arena
+namespace GurpsSharp
 {
     abstract class Dano
     {
         public const int SWING = 0;
-        public const int THURT = 1;
+        public const int THURST = 1;
 
         public int modificador;
         public int tipo;

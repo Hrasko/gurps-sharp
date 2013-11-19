@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Arena
+namespace GurpsSharp
 {
     [Serializable]
     public class Personagem
     {
+        /// <summary>
+        /// nome do doido
+        /// </summary>
         public string nome;
+
+        /// <summary>
+        /// Vetor com a quantidade de pontos gastos pelo personagem em cada atributo. Ex: Se o personagem gastar 10 pontos em ST, o vetor vai ficar como [10,0,0,0,...]
+        /// </summary>
         public Atributo[] atributos;
         public int xp;
         public SerializableDictionary<int, int> habilidades;
+        public SerializableDictionary<string,Equipamento> inventorio;
 
         public Personagem()
         {
@@ -27,8 +35,8 @@ namespace Arena
                 {
                     atributos[i] = new Atributo();
                 }
+                inventorio = new SerializableDictionary<string, Equipamento>();
         }
-
         
         public int pegarValorAtributo(int indice)
         {
@@ -64,6 +72,27 @@ namespace Arena
                 {
                     habilidades.Add(indice, pontos);
                 }
+            }
+        }
+
+        public void Equipar(string onde, Equipamento equipamento)
+        {
+            equipamento.equipadoPor = this;
+            if (inventorio.ContainsKey(onde))
+            {
+                inventorio[onde] = equipamento;
+            }
+            else
+            {
+                inventorio.Add(onde, equipamento);
+            }
+        }
+
+        public void Usar(string ondeEsta)
+        {
+            if (inventorio.ContainsKey(ondeEsta))
+            {
+                inventorio[ondeEsta].Usar(this);
             }
         }
 
